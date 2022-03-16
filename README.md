@@ -92,15 +92,14 @@ Example Frame:
 
 ## Software Used
 
-- MPLAB® X IDE [v6.0.0 or newer](http://www.microchip.com/mplab/mplab-x-ide) 
-- MPLAB® XC8 Compiler [v2.36.0 or newer](http://www.microchip.com/mplab/compilers) 
-- MPLAB® Code Configurator (MCC) [v5.1.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator) 
-- Microchip PIC16F1xxxx Series Device Support [v1.9.163 or newer pack](https://packs.download.microchip.com/)
-- MPLAB® Melody Library
-   - TMR0 v4.0.8
-   - EUSART v7.0.0
-   - MSSP v6.1.1
-   - GPIO/Pins drivers v3.2.2
+- MPLAB® X IDE [6.0.0 or newer](http://www.microchip.com/mplab/mplab-x-ide) 
+- MPLAB® XC8 Compiler [2.36.0 or newer](http://www.microchip.com/mplab/compilers) 
+- MPLAB® Code Configurator (MCC) [5.1.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator) 
+- Microchip PIC16F1xxxx Series Device Support [1.9.163 or newer pack](https://packs.download.microchip.com/)
+- TMR0 MCC Melody driver 4.0.8
+- UART MCC Melody driver 7.0.0
+- MSSP MCC Melody driver 6.1.1
+- GPIO/Pins drivers MCC Melody driver 3.2.2
 
 ## Hardware Used
 
@@ -115,7 +114,6 @@ Example Frame:
 The PIC16F15244 Curiosity Nano evaluation board with the RS485 2 click is used as host system. The boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup. 
 
 Refer hardware connection details table for more information.
-
 
 <p align="center">
   <img width=auto height=auto src="images/HardwareSetup.jpg">
@@ -219,7 +217,7 @@ The data visualizer tool is used as a graphical user interface while demonstrati
 ### Data Streamer Configuration
 
 1.	Configure the data streamer for interfacing the dashboard window with the serial port control panel.
-2.	To open data stream control panel, open the Configuration tab located on the left side of the data visualizer tool, expand Protocols, and click the Data Streamer, Data Streamer window that appears, as shown in Figure 9.
+2.	To open data stream control panel, open the Configuration tab located on the left side of the data visualizer tool, expand Protocols, and click the Data Streamer, Data Streamer window that appears, as shown in Figure 12.
 3.	Click the ‘...’ symbol in the Data Stream control panel window, set an appropriate path for the provided data streamer file from the host computer, as shown in Figure 12.
 
 <p align="center">
@@ -305,10 +303,10 @@ The data visualizer tool is used as a graphical user interface while demonstrati
 </p>
 
 ### TMR0:
-- Clock Prescaler: 1:8192
-- Post scaler: 1:15
-- Clock Source: HFINTOSC
-- Requested Period(s): 0.98 (1s)
+- Clock Prescaler: 1:32768
+- Post scaler: 1:3
+- Clock Source: FOSC/4
+- Requested Period(s): 3
 
 <p align="center">
   <img width=auto height=auto src="images/ClientTimer.jpg">
