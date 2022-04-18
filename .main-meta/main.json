@@ -37,7 +37,7 @@
             }
         },
         "author": "Srinivasa K R",
-        "peripherals": [EUSART,"TMR","GPIO","ADC"],
+        "peripherals": ["EUSART","TMR","GPIO","ADC"],
         "keywords": ["RS-485,"TMR","Wired""],
         "additionalData": {
             "longDescription": {
