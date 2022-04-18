@@ -7,10 +7,10 @@
         "version": " ",
         "displayName": "",
         "projectName": "pic16f15276-cnano-spi-rs485-bridge-modbus-client-mplab-mcc",
-        "shortDescription": "This code example demonstrates how to realize a SPI RS485 bridge and Modbus client using built in MSSP SPI mode and UART peripherals of the PIC microcontroller Compatible PIC16F152xx family of MCUs are PIC16F15214 PIC16F15223 PIC16F15244 PIC16F15254",
+        "shortDescription": "This code example demonstrates how to realize a SPI RS485 bridge and Modbus client using built in MSSP (SPI mode) and UART peripherals of the PIC microcontroller. Compatible PIC16F152xx family of MCUs are PIC16F15214, PIC16F15223, PIC16F15244, PIC16F15254",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=6.00.0"
+            "semverRange": ">=6.0.0"
         },
         "compiler": [
             {
@@ -19,12 +19,12 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC16F1xxxx_DFP",
+            "semverRange": "^1.9.163"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=5.1.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,8 +37,8 @@
             }
         },
         "author": "Srinivasa K R",
-        "peripherals": [],
-        "keywords": [],
+        "peripherals": [EUSART,"TMR","GPIO","ADC"],
+        "keywords": ["RS-485,"TMR","Wired""],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",

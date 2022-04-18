@@ -7,16 +7,15 @@ The RS485 communication with MODBUS protocol is mostly used over industrial sect
 
 The serial protocol-based clients can be integrated to RS485 based host system using SPI-RS485 bridge.
 
-The PIC16F15244 family of microcontrollers is equipped with Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers, and MSSP peripherals which can be used in RS485 communication and for implementation of SPI to RS485 Bridge system. 
+The PIC16F152xx family of microcontrollers is equipped with Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers, and MSSP peripherals which can be used in RS485 communication and for implementation of SPI to RS485 Bridge system. 
 
 This code example highlights the integration of SPI based client sensors and communication with host through RS485 line by using SPI-RS485 Bridge. It demonstrates how to connect SPI clients to the RS485 network.
 
 ## Related Documentation
 
 - [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git)
-- [PIC16F15276 Product Family Page](https://www.microchip.com/40002305)
-- [PIC16F15244 Family Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=pic16f152&type=&language=&sort=)
-- [PIC16F15244 MCU Family Video](https://www.youtube.com/watch?v=nHLv3Th-o-s)
+- [PIC16F152xx Family Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=pic16f152&type=&language=&sort=)
+- [PIC16F152xx MCU Family Video](https://www.youtube.com/watch?v=nHLv3Th-o-s)
 - [PIC16F15276 Product Page](https://www.microchip.com/en-us/product/PIC16F15276)
 - [PIC16F15276 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC16F15256-74-75-76-28-40-Pin-Microcontrollers-40002305B.pdf)
 
@@ -95,9 +94,9 @@ Example Frame:
 - MPLAB® X IDE [6.0.0 or newer](http://www.microchip.com/mplab/mplab-x-ide) 
 - MPLAB® XC8 Compiler [2.36.0 or newer](http://www.microchip.com/mplab/compilers) 
 - MPLAB® Code Configurator (MCC) [5.1.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator) 
-- Microchip PIC16F1xxxx Series Device Support [1.9.163 or newer pack](https://packs.download.microchip.com/)
+- Microchip PIC16F1xxxx_DFP Device Support [1.9.163 or newer pack](https://packs.download.microchip.com/)
 - TMR0 MCC Melody driver 4.0.8
-- UART MCC Melody driver 7.0.0
+- UART MCC Melody driver 1.6.0
 - MSSP MCC Melody driver 6.1.1
 - GPIO/Pins drivers MCC Melody driver 3.2.2
 
@@ -111,7 +110,7 @@ Example Frame:
 
 ## Hardware Setup
 
-The PIC16F15244 Curiosity Nano evaluation board with the RS485 2 click is used as host system. The boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup. 
+The PIC16F15276 Curiosity Nano (CNANO) evaluation board with the RS485 2 click, Thermo Click and Pressure Click are used as client system. The CNANO and click boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup. 
 
 Refer hardware connection details table for more information.
 
