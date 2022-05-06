@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic16f15276-cnano-spi-rs485-bridge-modbus-client-mplab-mcc",
-        "version": " ",
+        "version": "1.0.1",
         "displayName": "SPI-RS485 Bridge and Modbus Client Implementation using PIC16F15276 Microcontroller",
         "projectName": "pic16f15276-cnano-spi-rs485-bridge-modbus-client-mplab-mcc",
         "shortDescription": "This code example demonstrates how to realize a SPI RS485 bridge and Modbus client using built in MSSP (SPI mode) and UART peripherals of the PIC microcontroller. Compatible PIC16F152xx family of MCUs are PIC16F15214, PIC16F15223, PIC16F15244, PIC16F15254",
