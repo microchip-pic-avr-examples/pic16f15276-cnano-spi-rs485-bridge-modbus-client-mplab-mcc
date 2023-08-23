@@ -7,7 +7,7 @@ The RS485 communication with MODBUS protocol is mostly used over industrial sect
 
 The serial protocol-based clients can be integrated to RS485 based host system using SPI-RS485 bridge.
 
-The PIC16F152xx family of microcontrollers is equipped with Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers, and MSSP peripherals which can be used in RS485 communication and for implementation of SPI to RS485 Bridge system. 
+The PIC16F152xx family of microcontrollers is equipped with Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers, and MSSP peripherals which can be used in RS485 communication and for implementation of SPI to RS485 Bridge system.
 
 This code example highlights the integration of SPI based client sensors and communication with host through RS485 line by using SPI-RS485 Bridge. It demonstrates how to connect SPI clients to the RS485 network.
 
@@ -19,15 +19,15 @@ This code example highlights the integration of SPI based client sensors and com
 - [PIC16F15276 Product Page](https://www.microchip.com/en-us/product/PIC16F15276)
 - [PIC16F15276 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC16F15256-74-75-76-28-40-Pin-Microcontrollers-40002305B.pdf)
 
-## Demo Description 
+## Demo Description
 
-The SPI-RS485 Bridge example aims to integrate serial protocol (SPI) clients to RS485 based systems. 
+The SPI-RS485 Bridge example aims to integrate serial protocol (SPI) clients to RS485 based systems.
 
 This demonstration is having Host and Client systems. Host sends MODBUS RTU query frames to client for asking the sensor data. Client receives MODBUS frames and responds back to host with sensor data, if received frame is valid.
 
 The host system periodically (every 10s) creates the Modbus RTU frame with client address, function code, address of the desired data, it appends the 2-bytes CRC to the frame and sends the MODBUS query frame for reading holding registers of Client.
 
-The PIC16F15244 microcontroller acts as host and is interfaced with the RS485 2 click over EUSART and it is used to convert EUSART TTL signals to RS485 standard signals for communicating with RS485 bus network. 
+The PIC16F15244 microcontroller acts as host and is interfaced with the RS485 2 click over EUSART and it is used to convert EUSART TTL signals to RS485 standard signals for communicating with RS485 bus network.
 
 The client microcontroller receives the frame from host, it validates the CRC of received frame by calculating the CRC, if CRC matches, then it validates the address. Client performs the required action as per the requested function code and responds to the host by preparing the response MODBUS frame.
 
@@ -35,34 +35,34 @@ The client microcontroller measures the temperature using thermo click, pressure
 
 The PIC16F15276 microcontroller acts as client and is interfaced with the pressure sensor on Pressure 5 click board and temperature sensor on Thermo click board over SPI. The PIC16F15276 microcontroller communicates with RS485 2 click using EUSART protocol. The RS485 2 click is used to interface the SPI sensors to RS485 bus network.
 
-The SPI-RS485 bridge demo block diagram is shown in below figure. 
+The SPI-RS485 bridge demo block diagram is shown in below figure.
 
 <p align="center">
   <img width=auto height=auto src="images/BlockDiagram.jpg">
   <br>Figure 1 : SPI-RS485 Bridge Block Diagram  <br>
 </p>
 
-## Modbus Introduction 
+## Modbus Introduction
 
-Modbus is a serial communication protocol developed for use with its programmable logic controllers (PLCs). In simple terms, it is a method used for transmitting information over serial lines between electronic devices. The device requesting the information is called the Modbus Host and the devices supplying information are Modbus Clients. 
+Modbus is a serial communication protocol developed for use with its programmable logic controllers (PLCs). In simple terms, it is a method used for transmitting information over serial lines between electronic devices. The device requesting the information is called the Modbus Host and the devices supplying information are Modbus Clients.
 
 In a standard Modbus network, there is one Host and up to 247 Clients, each with a unique Client Address from 1 to 247. The Host can also write information to the Clients. The Host MODBUS frame includes Client address, function code, memory address, length of the expected data and CRC.
 
-### Sample Data Frame: 
+### Sample Data Frame:
 
-Host MODBUS RTU Frame- 
+Host MODBUS RTU Frame-
 
-| Client ID | Function code	| Register address | Number of registers | CRC  |	
+| Client ID | Function code	| Register address | Number of registers | CRC  |
 
 Client Response Frame-
 
 | Client ID | Function code	| Number of bytes data received | Register data | CRC  |
 
-### Function Code: 
+### Function Code:
 
 The second byte sent by the Host is the Function code. This number tells the client which table to access and whether to read from or write to the table.
 
-### Coil/Register Number: 
+### Coil/Register Number:
 
 Information is stored in the Client device in four different tables. Two tables store on/off discrete values (coils) and two store numerical values (registers). The coils and registers each have a read-only table and read-write table. Each table has 9999 values. Each coil or contact is 1 bit and assigned a data address between 0x0000 and 0x270E. Each register is 1 word = 16 bits = 2 bytes wide and it has data address between 0x0000 and 0x270E.
 
@@ -70,47 +70,47 @@ Information is stored in the Client device in four different tables. Two tables 
 
 The total number of registers requested.
 
-### CRC: 
+### CRC:
 
 CRC stands for Cyclic Redundancy check. It has two bytes added to the end of every MODBUS frame for error detection and to identify the data corruption.
 
-Example Frame: 
+Example Frame:
 
 |Request Frame Bytes | Description | Response Frame | Description |
-|:---------:|:----------:|:-----------:|:---------:|:------------:|	
-| 0x15  | Client ID address	| 0x15 | Client ID address | 
-| 0x03  | Function code	| 0x03 | Function code | 
-| 0x00  | Address of the register requested (1st Byte)	| 0x04 | The Number of bytes data received | 
-| 0x6B  | Address of the register requested (2nd Byte) | 0x00 | Register value Hi (1st Byte) | 
-| 0x00  | The total number of registers requested (1st Byte) | 0x01 | Register value Lo (2nd Byte) | 
-| 0x02  | The total number of registers requested (2nd Byte) | 0xA1 | Register value Hi (3rd Byte) | 
-| 0xB6  | CRC for error checking (1st Byte)	| 0x9B | Register value Lo (4th Byte) | 
+|:---------:|:----------:|:-----------:|:---------:|:------------:|
+| 0x15  | Client ID address	| 0x15 | Client ID address |
+| 0x03  | Function code	| 0x03 | Function code |
+| 0x00  | Address of the register requested (1st Byte)	| 0x04 | The Number of bytes data received |
+| 0x6B  | Address of the register requested (2nd Byte) | 0x00 | Register value Hi (1st Byte) |
+| 0x00  | The total number of registers requested (1st Byte) | 0x01 | Register value Lo (2nd Byte) |
+| 0x02  | The total number of registers requested (2nd Byte) | 0xA1 | Register value Hi (3rd Byte) |
+| 0xB6  | CRC for error checking (1st Byte)	| 0x9B | Register value Lo (4th Byte) |
 | 0xC3  | CRC for error checking (2nd Byte) | 0xC7,0xC9 | CRC value Hi and Low (1st and 2nd Byte) |
 
 **Note: Refer [modbus.org](https://modbus.org/) for more details on MODBUS.**
 
 ## Software Used
 
-- MPLAB® X IDE [6.0.0 or newer](http://www.microchip.com/mplab/mplab-x-ide) 
-- MPLAB® XC8 Compiler [2.36.0 or newer](http://www.microchip.com/mplab/compilers) 
-- MPLAB® Code Configurator (MCC) [5.1.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator) 
-- Microchip PIC16F1xxxx_DFP Device Support [1.9.163 or newer pack](https://packs.download.microchip.com/)
-- TMR0 MCC Melody driver 4.0.8
-- UART MCC Melody driver 1.6.0
-- MSSP MCC Melody driver 6.1.1
-- GPIO/Pins drivers MCC Melody driver 3.2.2
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) 6.15.0 or newer
+- MPLAB® XC8 Compiler [2.41.0 or newer](http://www.microchip.com/mplab/compilers)
+- MPLAB® Code Configurator (MCC) [5.3.7 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
+- Microchip PIC16F1xxxx_DFP Device Support [1.19.363 or newer pack](https://packs.download.microchip.com/)
+- TMR0 MCC Melody driver 4.0.11
+- UART MCC Melody driver 1.8.0
+- MSSP MCC Melody driver 6.1.7
+- GPIO/Pins drivers MCC Melody driver 3.5.0
 
 ## Hardware Used
 
 - [PIC16F15276 Curiosity Nano Board](https://www.microchip.com/en-us/development-tool/EV35F40A)
 - [Curiosity Nano Base for Click Boards](https://www.microchip.com/en-us/development-tool/AC164162)
-- [Thermo Click](https://www.microchip.com/en-us/development-tool/EV35F40A)
-- [Pressure5 Click](https://www.microchip.com/en-us/development-tool/EV35F40A)
+- [Thermo Click](https://www.mikroe.com/thermo-click)
+- [Pressure5 Click](https://www.mikroe.com/pressure-5-click)
 - [RS485 2 Click](https://www.mikroe.com/rs485-2-click)
 
 ## Hardware Setup
 
-The PIC16F15276 Curiosity Nano (CNANO) evaluation board with the RS485 2 click, Thermo Click and Pressure Click are used as client system. The CNANO and click boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup. 
+The PIC16F15276 Curiosity Nano (CNANO) evaluation board with the RS485 2 click, Thermo Click and Pressure Click are used as client system. The CNANO and click boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup.
 
 Refer hardware connection details table for more information.
 
@@ -122,8 +122,8 @@ Refer hardware connection details table for more information.
 ### Hardware Connection Details
 
 |Sl No. | Microcontroller pin | Pin Configuration | Signal name |I/O Pin Direction |
-|:---------:|:----------:|:-----------:|:---------:|:------------:|	
-| 1     | RC2	| MOSI	 | SPI – Master Out Serial In | OUT  |	
+|:---------:|:----------:|:-----------:|:---------:|:------------:|
+| 1     | RC2	| MOSI	 | SPI – Master Out Serial In | OUT  |
 | 2     | RC5	| MISO   | SPI- Master in Serial Out | IN  |
 | 3     | RC6	| SCK    | SPI – Clock | IN  |
 | 4     | RC7	| IO   | Slave Select for Pressure 5 Click | OUT  |
@@ -137,10 +137,10 @@ Refer hardware connection details table for more information.
 | 12    | RA7	| DE   | Transmit Control of RS485 | OUT |
 
 
-Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) for hardware connection details of host system. 
+Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) for hardware connection details of host system.
 
 
-## Demo Operation 
+## Demo Operation
 
 1.	Connect the hardware and prepare the demonstrator setup, follow the steps in Hardware Setup section for hardware setup.
 2.	Configure the data visualizer, for viewing the custom dashboard window, follow the instructions provided in the Data Visualizer Configuration section.
@@ -159,7 +159,7 @@ Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller
   <br>Figure 4 : Modbus RTU frames in Data Visualizer custom dashboard window<br>
 </p>
 
-6.	Observe “Error Flags” fields to identify the errors when transaction is not successful. 
+6.	Observe “Error Flags” fields to identify the errors when transaction is not successful.
 
 <p align="center">
   <img width=auto height=auto src="images/DVCstmBrdErrorData.jpg">
@@ -238,9 +238,9 @@ The data visualizer tool is used as a graphical user interface while demonstrati
   <br>Figure 14 : Connection between Serial Port and Data Streamer Window<br>
 </p>
 
-### Custom Dashboard Configuration 
+### Custom Dashboard Configuration
 
-1.	Configure the custom dashboard window to display the battery monitoring information. 
+1.	Configure the custom dashboard window to display the battery monitoring information.
 2.	To open the custom dashboard window, open the Configuration tab located on the left side of the data visualizer tool, expand Visualization, and click Custom Dashboard that appears as shown in Figure 15.
 
 <p align="center">
@@ -263,7 +263,7 @@ The data visualizer tool is used as a graphical user interface while demonstrati
   <br>Figure 17 : Data Visualizer Connection Reference Diagram<br>
 </p>
 
-6.	Follow the Data Visualizer Serial Configuration (Steps 1,2,3 and 4) steps to open the Data Visualizer terminal for Client system. 
+6.	Follow the Data Visualizer Serial Configuration (Steps 1,2,3 and 4) steps to open the Data Visualizer terminal for Client system.
 
 <p align="center">
   <img width=auto height=auto src="images/ClientTerminal.jpg">
@@ -283,10 +283,10 @@ The data visualizer tool is used as a graphical user interface while demonstrati
   <img width=auto height=auto src="images/MCCClock.png">
   <br>Figure 19 : Clock Module Window<br>
 </p>
- 
+
 ### Configuration Bits:
 
-- Default Value for COSC bits: HFINTOSC (32MHz) 
+- Default Value for COSC bits: HFINTOSC (32MHz)
 
 <p align="center">
   <img width=auto height=auto src="images/MCCConfigurationBit.png">
@@ -297,7 +297,7 @@ The data visualizer tool is used as a graphical user interface while demonstrati
 - Baud Rate: 9600
 
 <p align="center">
-  <img width=auto height=auto src="images/EUSART.jpg">
+  <img width=auto height=auto src="images/EUSART.png">
   <br>Figure 21 : EUSART Configuration Window<br>
 </p>
 
@@ -308,18 +308,18 @@ The data visualizer tool is used as a graphical user interface while demonstrati
 - Requested Period(s): 3
 
 <p align="center">
-  <img width=auto height=auto src="images/ClientTimer.jpg">
+  <img width=auto height=auto src="images/ClientTimer.png">
   <br>Figure 22 : TMR0 Configuration Window<br>
 </p>
 
-### Pin Grid View 
+### Pin Grid View
 
 <p align="center">
   <img width=auto height=auto src="images/ClientPinGridView.jpg">
   <br>Figure 23 : Pin Grid View Window<br>
 </p>
 
-### Pins 
+### Pins
 
 <p align="center">
   <img width=auto height=auto src="images/ClientPins.jpg">

@@ -12,7 +12,7 @@
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -40,10 +40,10 @@ void PIN_MANAGER_Initialize(void)
    /**
     LATx registers
     */
-    LATA = 0x0;
+    LATA = 0x80;
     LATB = 0x0;
     LATC = 0x0;
-    LATD = 0x0;
+    LATD = 0x20;
     LATE = 0x4;
 
     /**
@@ -60,7 +60,7 @@ void PIN_MANAGER_Initialize(void)
     */
     ANSELA = 0x3F;
     ANSELB = 0xFC;
-    ANSELC = 0x1F;
+    ANSELC = 0x1B;
     ANSELD = 0x9F;
     ANSELE = 0x3;
 
@@ -73,11 +73,6 @@ void PIN_MANAGER_Initialize(void)
     WPUD = 0x0;
     WPUE = 0x0;
   
-
-    /**
-    APFCONx registers
-    */
-
     /**
     ODx registers
     */
@@ -90,10 +85,10 @@ void PIN_MANAGER_Initialize(void)
     /**
     SLRCONx registers
     */
-    SLRCONA = 0xFF;
-    SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
-    SLRCOND = 0xFF;
+    SLRCONA = 0x3F;
+    SLRCONB = 0xFC;
+    SLRCONC = 0x1B;
+    SLRCOND = 0x9F;
     SLRCONE = 0x7;
     /**
     INLVLx registers
@@ -110,13 +105,14 @@ void PIN_MANAGER_Initialize(void)
     RX1PPS = 0x9; //RB1->EUSART1:RX1;
     SSP1DATPPS = 0x15; //RC5->MSSP1:SDI1;
     RB0PPS = 0x05;  //RB0->EUSART1:TX1;
-    RC6PPS = 0x07;  //RC6->MSSP1:SCK1;
     RC2PPS = 0x08;  //RC2->MSSP1:SDO1;
-	
-    
-    SSP1CLKPPS = 0x16;   //RC6->MSSP1:SCK1;  //edited
-    
-    
+    SSP1CLKPPS = 0x16;  //RC6->MSSP1:SCK1;
+    RC6PPS = 0x07;  //RC6->MSSP1:SCK1;
+
+    /**
+    APFCON registers
+    */
+
    /**
     IOCx registers 
     */
@@ -132,7 +128,7 @@ void PIN_MANAGER_Initialize(void)
     IOCEP = 0x0;
     IOCEN = 0x0;
     IOCEF = 0x0;
-      
+
 
 }
   

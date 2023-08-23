@@ -43,7 +43,7 @@ void EUSART_Flush(void);
 void Application(void) 
 { 
     bool dataReceived = NOT_RECEIVED;   
-
+    
     if(sensorReadFlag == true)      //timer overflow every 3s
     {
        sensorReadFlag = false;
@@ -88,6 +88,7 @@ void Application(void)
         }
         EUSART_Flush();
      }
+   
 }
 
 /*******************************************************************************
