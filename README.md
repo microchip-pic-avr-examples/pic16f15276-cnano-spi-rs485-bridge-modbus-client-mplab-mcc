@@ -33,7 +33,7 @@ The client microcontroller receives the frame from host, it validates the CRC of
 
 The client microcontroller measures the temperature using thermo click, pressure using pressure 5 click and stores it in dedicated flash memory.
 
-The PIC16F15276 microcontroller acts as client and is interfaced with the pressure sensor on Pressure 5 click board and temperature sensor on Thermo click board over SPI. The PIC16F15276 microcontroller communicates with RS485 2 click using EUSART protocol. The RS485 2 click is used to interface the SPI sensors to RS485 bus network.
+The PIC16F15276 microcontroller acts as a client and interfaced with the pressure sensor on Pressure 5 click board and temperature sensor on Thermo click board over SPI. The PIC16F15276 microcontroller communicates with RS485 2 click using EUSART protocol. The RS485 2 click is used to interface the SPI sensors to RS485 bus network.
 
 The SPI-RS485 bridge demo block diagram is shown in below figure.
 
@@ -92,9 +92,9 @@ Example Frame:
 ## Software Used
 
 - [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) 6.15.0 or newer
-- MPLAB® XC8 Compiler [2.41.0 or newer](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) [5.3.7 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC16F1xxxx_DFP Device Support [1.19.363 or newer pack](https://packs.download.microchip.com/)
+- [MPLAB® XC8 Compiler](http://www.microchip.com/mplab/compilers) 2.41.0 or newer
+- [MPLAB® Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator) 5.3.7 or newer
+- [Microchip PIC16F1xxxx_DFP Device Support](https://packs.download.microchip.com/) 1.19.363 or newer pack
 - TMR0 MCC Melody driver 4.0.11
 - UART MCC Melody driver 1.8.0
 - MSSP MCC Melody driver 6.1.7
@@ -110,7 +110,7 @@ Example Frame:
 
 ## Hardware Setup
 
-The PIC16F15276 Curiosity Nano (CNANO) evaluation board with the RS485 2 click, Thermo Click and Pressure Click are used as client system. The CNANO and click boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup.
+The PIC16F15276 Curiosity Nano (CNANO) evaluation board with the [RS485 2 Click](https://www.mikroe.com/rs485-2-click), [Thermo Click](https://www.mikroe.com/thermo-click) and [Pressure5 Click](https://www.mikroe.com/pressure-5-click) are used as client system. The CNANO and click boards are mounted on a Curiosity Nano base for Click boards. The following figure shows hardware setup of the application. Visit [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontroller ](https://github.com/microchip-pic-avr-examples/pic16f15244-spi-rs485-bridge-modbus-host-emulation-mplab-mcc.git) git repository for host hardware setup.
 
 Refer hardware connection details table for more information.
 
