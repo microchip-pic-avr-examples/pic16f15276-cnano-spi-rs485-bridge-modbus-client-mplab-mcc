@@ -239,6 +239,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-3fff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Projects/pic16f15276-cnano-spi-rs485-bridge-modbus-client-mplab-mcc/pic16f15276-cnano-spi-rs485-bridge-client-mplab-mcc.X/debug/free/pic16f15276-cnano-spi-rs485-bridge-client-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
