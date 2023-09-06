@@ -69,6 +69,5 @@ int main(void)
     {
       __delay_ms(DELAY_FOR_RESPONSE);
       Application();                       //Main application function to receive Modbus RTU frame from the host and send response to host
-      //ReceiveModbusRTUFrame();
     }
 }

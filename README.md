@@ -7,7 +7,7 @@ The RS485 communication with Modbus protocol is mostly used in the industrial se
 
 The serial protocol-based clients can be integrated to an RS485 based host system using an SPI-RS485 bridge.
 
-The PIC16F152xx family of microcontrollers(MCUs) is equipped with the Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers and MSSP peripherals which can be used in RS485 communication and for Serial Peripheral Interface(SPI) implementation to the RS485 bridge system.
+The PIC16F152xx family of microcontrollers (MCUs) is equipped with the Enhanced Universal Synchronous Asynchronous Receiver Transmitter (EUSART), Timers and MSSP peripherals which can be used in RS485 communication and for Serial Peripheral Interface (SPI) implementation to the RS485 bridge system.
 
 This code example highlights the integration of SPI-based client sensors and communication with host through the RS485 line by using the SPI-RS485 bridge. It demonstrates how to connect SPI clients to the RS485 network.
 
@@ -21,11 +21,11 @@ This code example highlights the integration of SPI-based client sensors and com
 
 ## Demo Description
 
-The SPI-RS485 bridge example aims to integrate serial protocol(SPI) clients to the RS485 based systems.
+The SPI-RS485 bridge example aims to integrate serial protocol (SPI) clients to the RS485 based systems.
 
 This demonstration uses host and client systems. The host sends Modbus RTU query frames to the client to ask for the sensor data. The client receives the Modbus frames and responds to the host with the sensor data, if the received frame is valid.
 
-The host system periodically (every 10s) creates the Modbus RTU frame with the client address, function code and address of the desired data, appending the 2-bytes Cyclic Redundancy Check (CRC) to the frame and sending the Modbus query frame for reading the client holding registers.
+The host system periodically (every 10s) creates the Modbus RTU frame with the client address, function code and address of the desired data, appending the 2-byte Cyclic Redundancy Check (CRC) to the frame and sending the Modbus query frame for reading the client holding registers.
 
 The PIC16F15244 microcontroller serves as the host and is connected to the RS485 2 click via EUSART. It is used to convert EUSART TTL signals to RS485 standard signals, enabling communication with the RS485 bus network.
 
@@ -39,7 +39,7 @@ The figure below shows the SPI-RS485 bridge demo block diagram.
 
 <p align="center">
   <img width=auto height=auto src="images/BlockDiagram.jpg">
-  <br>Figure 1.  <br>
+  <br>Figure 1. SPI-RS485 Bridge Block Diagram  <br>
 </p>
 
 ## Modbus Introduction
@@ -78,7 +78,7 @@ The information is stored in four different tables within the client device. Two
 
 The total number of registers requested.
 
-### Cyclic Redundancy Check(CRC)
+### Cyclic Redundancy Check (CRC)
 
 The CRC has two bytes added to the end of every Modbus frame for error detection and identifying data corruption.
 
@@ -93,18 +93,18 @@ Example frame
 | 0x00  | The total number of requested registers (1st byte) | 0x01 | Register value Low (2nd byte) |
 | 0x02  | The total number of requested registers (2nd byte) | 0xA1 | Register value High (3rd byte) |
 | 0xB6  | CRC for error checking (1st byte)	| 0x9B | Register value Low (4th byte) |
-| 0xC3  | CRC for error checking (2nd byte) | 0xC7,0xC9 | CRC value High and Low (1st and 2nd byte) |
+| 0xC3  | CRC for error checking (2nd byte) | 0xC7, 0xC9 | CRC value High and Low (1st and 2nd byte) |
 
-**Note:** Refer [modbus.org](https://modbus.org/) for more details on MODBUS.
+**Note:** Refer [modbus.org](https://modbus.org/) for more details on Modbus.
 
 ## Software Used
 
 - [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) 6.15.0 or newer
-- [MPLAB® XC8 Compiler](http://www.microchip.com/mplab/compilers) 2.41.0 or newer
+- [MPLAB® XC8 Compiler](http://www.microchip.com/mplab/compilers) 2.45.0 or newer
 - [MPLAB® Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator) 5.3.7 or newer
-- [Microchip PIC16F1xxxx_DFP Device Support](https://packs.download.microchip.com/) 1.19.363 or newer pack
+- [Microchip PIC16F1xxxx_DFP Device Support](https://packs.download.microchip.com/) 1.20.366 or newer pack
 - TMR0 MCC Melody driver 4.0.11
-- UART MCC Melody driver 1.8.0
+- ESUART MCC Melody driver 7.1.4
 - MSSP MCC Melody driver 6.1.7
 - GPIO/Pins drivers MCC Melody driver 3.5.0
 
@@ -124,7 +124,7 @@ Refer to the hardware connection details table for more information.
 
 <p align="center">
   <img width=auto height=auto src="images/HardwareSetup.jpg">
-  <br>Figure 2.  <br>
+  <br>Figure 2. SPI-RS485 Bridge Hardware Setup  <br>
 </p>
 
 ### Hardware Connection Details
@@ -132,7 +132,7 @@ Refer to the hardware connection details table for more information.
 |Sl No. | Microcontroller Pin | Pin Configuration | Signal Name |I/O Pin Direction |
 |:---------:|:----------:|:-----------:|:---------:|:------------:|
 | 1     | RC2	| MOSI	 | SPI – Host Out Client In | OUT  |
-| 2     | RC5	| MISO   | SPI- Host in Client Out | IN  |
+| 2     | RC5	| MISO   | SPI – Host in Client Out | IN  |
 | 3     | RC6	| SCK    | SPI – Clock | IN  |
 | 4     | RC7	| IO   | Slave Select for Pressure 5 Click | OUT  |
 | 5     | RA6	| IO   | Slave Select for Thermo Click | OUT  |
@@ -151,7 +151,7 @@ Visit the [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontro
 ## Demo Operation
 
 1.	Connect the hardware and prepare the demonstrator setup. Follow the steps in *Hardware Setup* section for hardware setup.
-2.  Configure the Data Visualizer for viewing the custom dashboard window. Follow the instructions provided in the Data Visualizer Configuration section.
+2.  Configure the Data Visualizer for viewing the custom dashboard window. Follow the instructions provided in the *Data Visualizer Configuration section*.
 3.	Click the **Serial Port Control Panel Connect** button.
 4.	Observe the “Host Modbus RTU Frame No” field, on the first row of the custom board, to understand which frame is sent from host to client.
 
@@ -249,7 +249,7 @@ The Data Visualizer tool serves as a graphical user interface during application
 
 ### Custom Dashboard Configuration
 
-1.	Configure the custom dashboard window to display the battery monitoring information.
+1.	Configure the custom dashboard window to display the temperature and pressure information.
 2.	To open the custom dashboard window, open the **Configuration** tab located on the left side of the Data Visualizer tool, expand Visualization, and click Custom Dashboard, as shown in Figure 15.
 
 <p align="center">
@@ -272,7 +272,7 @@ The Data Visualizer tool serves as a graphical user interface during application
   <br>Figure 17. Data Visualizer Connection Reference Diagram<br>
 </p>
 
-6.	Follow the Data Visualizer Serial Configuration steps(1-4) to open the Data Visualizer terminal for the Client system.
+6.	Follow the Data Visualizer Serial Configuration steps (1-4) to open the Data Visualizer terminal for the Client system.
 
 <p align="center">
   <img width=auto height=auto src="images/ClientTerminal.jpg">
