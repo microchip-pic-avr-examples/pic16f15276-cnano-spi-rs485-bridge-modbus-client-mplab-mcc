@@ -88,14 +88,14 @@ Example frame
 |:---------:|:----------:|:-----------:|:---------:|
 | 0x15  | Client ID address	| 0x15 | Client ID address |
 | 0x03  | Function code	| 0x03 | Function code |
-| 0x00  | Address of the requested register (1st byte)	| 0x04 | The Number of data bytes received |
+| 0x00  | Address of the requested register (1st byte)	| 0x04 | The number of data bytes received |
 | 0x6B  | Address of the requested register (2nd byte) | 0x00 | Register value High (1st byte) |
 | 0x00  | The total number of requested registers (1st byte) | 0x01 | Register value Low (2nd byte) |
 | 0x02  | The total number of requested registers (2nd byte) | 0xA1 | Register value High (3rd byte) |
 | 0xB6  | CRC for error checking (1st byte)	| 0x9B | Register value Low (4th byte) |
 | 0xC3  | CRC for error checking (2nd byte) | 0xC7, 0xC9 | CRC value High and Low (1st and 2nd byte) |
 
-**Note:** Refer [modbus.org](https://modbus.org/) for more details on Modbus.
+**Note:** Refer to [modbus.org](https://modbus.org/) for more details on Modbus.
 
 ## Software Used
 
@@ -151,7 +151,7 @@ Visit the [SPI-RS485 Bridge: Modbus Host Emulation using PIC16F15244 Microcontro
 ## Demo Operation
 
 1.	Connect the hardware and prepare the demonstrator setup. Follow the steps in *Hardware Setup* section for hardware setup.
-2.  Configure the Data Visualizer for viewing the custom dashboard window. Follow the instructions provided in the *Data Visualizer Configuration section*.
+2.  Configure the Data Visualizer for viewing the custom dashboard window. Follow the instructions provided in the *Data Visualizer Configuration* section.
 3.	Click the **Serial Port Control Panel Connect** button.
 4.	Observe the “Host Modbus RTU Frame No” field, on the first row of the custom board, to understand which frame is sent from host to client.
 
